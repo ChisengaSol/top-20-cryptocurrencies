@@ -6,7 +6,9 @@ app.controller('AppCrtlr',function($scope, $http){
     $http.get('/cryptocurrencies').then((res) => {
         console.log("I got the data which I requested");
         //console.log(res.data);
+        $scope.nameFilter;
         $scope.currencies = res.data;
+        
     });
     
     //$scope.currencies = currencies;
