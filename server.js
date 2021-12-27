@@ -14,38 +14,16 @@ app.get('/cryptocurrencies',(req,res) => {
         //console.log(body);
         let currencies = JSON.parse(body);
         if(response.statusCode === 200){
-           // res.send()
-           //console.log(currencies);
            res.json(currencies);
         }
     });
-
-
-
-    //res.send("Hello world from server.js");
-    console.log("I recieved a get request");
-   //res.send("Helloo...");
-
-    curr1 = {
-        rank:"1",
-        name: "Bitcoin",
-        price:"100",
-        marketCap: "200",
-        hchange: "0.92"
-    };
-    curr2 = {
-        rank:"2",
-        name: "Therther",
-        price:"399",
-        marketCap: "100",
-        hchange: "0.82"
-    };
-
-    //var currencies = [curr1, curr2];
-    //var currencies = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=10';
-    //res.json(currencies);
-    //res.json(currencies);
 });
 
-app.listen(3000);
-console.log("Server running on port 3000");
+// app.listen(3000);
+// console.log("Server running on port 3000");
+
+//start app by listening on heroku default port
+const port = process.env.PORT || 8080;
+app.listen(port, (req, res) => {
+  console.log(`RUNNING on port ${port}`);
+});
